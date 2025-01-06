@@ -6,7 +6,13 @@ fn main() {
     print!("Enter a number: ");
     io::stdout().flush().unwrap();
     io::stdin().read_line(&mut input).unwrap();
-    let input: u32 = input.trim().parse().unwrap();
+    let input: u32 = match input.trim().parse() {
+        Ok(num) => num,
+        Err(_) => {
+            println!("Please enter a valid number.");
+            return;
+        }
+    };
 
     print!("Fibonacci series up to position {}: ", input);
     for i in 0..=input {
