@@ -23,10 +23,23 @@ if let Err(e) = file.read_to_string(&mut contents) {
 }
 let word_count = count_words(&contents);
 println!("Word count: {}", word_count);
+let line_count = count_lines(&contents);
+println!("Line count: {}", line_count);
+let char_count = count_chars(&contents);
+println!("Character count: {}", char_count);
+
+
 }
 
 
 fn count_words(contents: &str) -> usize {
 contents.split_whitespace().count()
+}
+
+fn count_lines(contents: &str) -> usize {
+contents.lines().count()
+}
+fn count_chars(contents: &str) -> usize {
+contents.chars().count()
 }
 
