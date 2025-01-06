@@ -7,10 +7,14 @@ fn main() {
     io::stdout().flush().unwrap();
     io::stdin().read_line(&mut input).unwrap();
     let input: u32 = input.trim().parse().unwrap();
-    let result = fibo(input);
-    println!("Fibonacci number at position {} is {}", input, result);
 
+    print!("Fibonacci series up to position {}: ", input);
+    for i in 0..=input {
+        print!("{} ", fibo(i));
+    }
+    println!();
 }
+
 fn fibo(n: u32) -> u32 {
     if n == 0 {
         return 0;
