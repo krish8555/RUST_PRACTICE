@@ -56,12 +56,12 @@ fn main() {
                 };
                 if let Some(task) = tasks.iter_mut().find(|t| t.id == task_id) {
                     let mut status = String::new();
-                    print!("Enter new status (done/not): ");
+                    print!("Enter new status (completed/not completed): ");
                     io::stdout().flush().unwrap();
                     io::stdin().read_line(&mut status).expect("Failed to read line");
                     task.completed = match status.trim().to_lowercase().as_str() {
-                        "done" => true,
-                        "not " => false,
+                        "completed" => true,
+                        "not completed" => false,
                         _ => {
                             println!("Invalid status");
                             continue;
